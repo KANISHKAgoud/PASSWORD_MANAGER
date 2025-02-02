@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className='bg-[#2E236C] h-[88vh] pt-2 text-white'>
+      <div className='bg-[#2E236C] h-[88vh] pt-2 text-white max-w-full'>
         {/* AFTER THE NAVBAR  */}
         <div className='text-center'>
           <div className='text-4xl font-extrabold'>
