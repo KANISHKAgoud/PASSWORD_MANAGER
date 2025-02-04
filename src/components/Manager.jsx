@@ -4,6 +4,7 @@ import { useState } from 'react'
 const Manager = () => {
     const [togglepassword, settogglePassword] = useState(true)
     const [data, setdata] = useState([])
+    // const [index, setIndex] = useState(0)
     const [form, setform] = useState({
         site: "",
         username: "",
@@ -15,13 +16,6 @@ const Manager = () => {
         setform({ ...form, [e.target.name]: e.target.value })
 
     }
-    // const handleUsername = (e) => {
-    //   setform({...form, [e.target.name]: [e.target.value]})
-    // }
-    // const handlePassword = (e) => {
-    //   setform({...form, [e.target.name]: [e.target.value]})
-    // }
-
 
     const showpassword = () => {
         settogglePassword(prevstate => !prevstate)
@@ -42,6 +36,19 @@ const Manager = () => {
 
         setform({ site: "", username: "", password: "" });
     }
+
+    const handleEdit = (index) => {
+      let editindex = index
+      let alldata = [...data]
+      alldata(index)= [...form, [e.target.name] = e.target.value]
+      setform(alldata(index))
+    }
+
+    const handleDelete = (index) => {
+      setdata(data.filter((_,i)=>i!==index))
+    }
+    
+    
 
     return (
         <div>
@@ -83,40 +90,39 @@ const Manager = () => {
                     <div className='border-2 border-green-50 mt-16 mx-7'> </div>
 
                     {/* SHOWING THE DATA IN THE APPLICATION  */}
-                            <div className='mt-6 text-2xl text-white font-bold ml-5 '>YOUR PASSWORDS</div>
-                            <div className="w-[90%] mx-auto mt-2">
-                                <thead>
-                                    <tr>
-                                        <th className='text-center'>URL</th>
-                                        <th className='text-center'>UserName</th>
-                                        <th className='text-center'>Password</th>
-                                    </tr>
-                                </thead>
-                                </div>
+                    <div className='mt-6 text-2xl text-white font-bold ml-5 '>YOUR PASSWORDS</div>
+                    <table className="w-[90%] mx-auto mt-2 ml-32">
+                        <thead>
+                            <tr>
+                                <th className=''>URL</th>
+                                <th className=''>UserName</th>
+                                <th className=''>Password</th>
+                            </tr>
+                        </thead>
+                    </table>
+
                     {data.map((e, index) => {
                         return (<div key={index} className=''>
+                            <table className='mx-auto  w-[95%]  mt-2'>
 
-                                <tbody className='bg-[#C8ACD6] text-black mx-auto h-8 '>
-                                    <tr className='relative'>
+                                <tbody className=' bg-[#C8ACD6] text-black h-8 '>
+                                    <tr className='relative rounded-3xl overflow-auto'>
                                         <td className='text-center '>{e.site}</td>
                                         <td className='text-center'>{e.username}</td>
                                         <td className='text-center'>{e.password}</td>
-                                        <td className='absolute right-20'><lord-icon
-                                            src="https://cdn.lordicon.com/exymduqj.json"
-                                            trigger="hover">
-                                        </lord-icon></td>
-                                        <td className='absolute right-6'><lord-icon
-                                            src="https://cdn.lordicon.com/hwjcdycb.json"
-                                            trigger="hover">
-                                        </lord-icon></td>
+                                        <td className='absolute right-20'>
+                                            <lord-icon onClick={handleEdit(index)}
+                                                src="https://cdn.lordicon.com/exymduqj.json"
+                                                trigger="hover">
+                                            </lord-icon></td>
+                                        <td className='absolute right-6'>
+                                            <lord-icon onClick={handleDelete(index)}
+                                                src="https://cdn.lordicon.com/hwjcdycb.json"
+                                                trigger="hover">
+                                            </lord-icon></td>
                                     </tr>
-
                                 </tbody>
-
-                            {/* <div className='bg-[#C8ACD6] w-[90%] text-black h-7 mt-6 mx-auto rounded-3xl px-2 text-xl'>
-                                <div>{e.text}  </div>
-                            </div> */}
-
+                            </table>
                         </div>
 
                         )
