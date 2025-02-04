@@ -83,11 +83,8 @@ const Manager = () => {
                     <div className='border-2 border-green-50 mt-16 mx-7'> </div>
 
                     {/* SHOWING THE DATA IN THE APPLICATION  */}
-                    {data.map((e, index) => {
-                        return (<div key={index} className=''>
                             <div className='mt-6 text-2xl text-white font-bold ml-5 '>YOUR PASSWORDS</div>
-
-                            <table className="w-[90%] mx-auto mt-2">
+                            <div className="w-[90%] mx-auto mt-2">
                                 <thead>
                                     <tr>
                                         <th className='text-center'>URL</th>
@@ -95,24 +92,26 @@ const Manager = () => {
                                         <th className='text-center'>Password</th>
                                     </tr>
                                 </thead>
-                                <tbody className=''>
-                                    <tr className='bg-[#C8ACD6] text-black mx-auto rounded-3xl '>
-                                        <td className='text-center '>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                                        <td className='text-center'>Malcolm Lockyer</td>
-                                        <td className='text-center'>1961</td>
+                                </div>
+                    {data.map((e, index) => {
+                        return (<div key={index} className=''>
+
+                                <tbody className='bg-[#C8ACD6] text-black mx-auto h-8 '>
+                                    <tr className='relative'>
+                                        <td className='text-center '>{e.site}</td>
+                                        <td className='text-center'>{e.username}</td>
+                                        <td className='text-center'>{e.password}</td>
+                                        <td className='absolute right-20'><lord-icon
+                                            src="https://cdn.lordicon.com/exymduqj.json"
+                                            trigger="hover">
+                                        </lord-icon></td>
+                                        <td className='absolute right-6'><lord-icon
+                                            src="https://cdn.lordicon.com/hwjcdycb.json"
+                                            trigger="hover">
+                                        </lord-icon></td>
                                     </tr>
-                                    <tr className='bg-[#C8ACD6] text-black mx-auto rounded-3xl '>
-                                        <td className='text-center'>Witchy Woman</td>
-                                        <td className='text-center'>The Eagles</td>
-                                        <td className='text-center'>1972</td>
-                                    </tr>
-                                    <tr>
-                                        <td className='text-center'>Shining Star</td>
-                                        <td className='text-center'>Earth, Wind, and Fire</td>
-                                        <td className='text-center'>1975</td>
-                                    </tr>
+
                                 </tbody>
-                            </table>
 
                             {/* <div className='bg-[#C8ACD6] w-[90%] text-black h-7 mt-6 mx-auto rounded-3xl px-2 text-xl'>
                                 <div>{e.text}  </div>
