@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import Navbar from './components/Navbar'
 import './App.css'
 import Manager from './components/Manager'
+import Footer from './components/footer'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -11,7 +12,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <Manager/>
+      <div className='max-h-[80vh]'>
+        <Manager />
+      </div>
+      <Footer />
     </>
   )
 }

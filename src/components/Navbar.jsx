@@ -8,8 +8,9 @@ const Navbar = () => {
                     <li className='text-4xl font-extrabold'>
                         LockVault
                     </li>
-                    <li className='pr-14'>
-                        github
+                    <li className='pr-14 flex justify-center items-center gap-2 text-xl'>
+                    <i className="fa-brands fa-github"></i>
+                        <div>github</div>
                     </li>
                 </ul>
             </div>
