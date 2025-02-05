@@ -180,7 +180,7 @@ const Manager = () => {
 
                                         <td className='text-center px-1 md:px-4 '>
                                             <div className='flex '>
-                                                <span className='truncate max-w-[50px] md:max-w-[170px]'>{e.password}</span>
+                                                <span className='truncate max-w-[50px] md:max-w-[170px]'>{"*".repeat(e.password.length)}</span>
                                                 <div className='cursor-pointer' onClick={() => copytext(e.password)}>
 
                                                     <lord-icon
